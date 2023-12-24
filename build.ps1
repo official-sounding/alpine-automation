@@ -1,0 +1,2 @@
+dotnet publish alpine-automation.csproj -c Release -r linux-musl-x64 -o  C:\utils\alpine-automation\linux-x64
+dotnet publish alpine-automation.csproj -c Release -r win-x64 -o  C:\utils\alpine-automation\win-x64
