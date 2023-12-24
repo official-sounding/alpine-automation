@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <RootNamespace>alpine_automation</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="answerfile.template" >
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content> 
+    <Content Include="gsham.keys">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,50 @@
+
+
+# Example answer file for setup-alpine script
+# If you don't want to use a certain option, then comment it out
+
+# Use US layout with US variant
+KEYMAPOPTS="us us"
+
+# Set hostname to alpine-test
+HOSTNAMEOPTS="-n {hostname}"
+
+# Contents of /etc/network/interfaces
+INTERFACESOPTS="auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+        address 10.10.10.{id}/16
+        gateway 10.10.1.1
+
+iface eth0 inet6 static
+"
+
+# Search domain of example.com, Google public nameserver
+DNSOPTS="-d omgpwned.net 10.10.1.1"
+
+# Set timezone to UTC
+TIMEZONEOPTS="-z UTC"
+
+PROXYOPTS=none
+
+# Add a random mirror
+APKREPOSOPTS="-r"
+
+# Install Openssh
+SSHDOPTS=openssh
+
+USEROPTS="-a -u -g netdev,docker,wheel gsham"
+USERSSHKEY="https://official-sounding.com/gsham.keys"
+
+# Use openntpd
+NTPOPTS=chrony
+
+# Use /dev/sda as a data disk
+DISKOPTS="-m sys /dev/sda"
+
+# Setup in /media/sdb1
+LBUOPTS=none
+APKCACHEOPTS=none
+
