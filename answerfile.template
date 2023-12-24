@@ -35,8 +35,8 @@ APKREPOSOPTS="-r"
 # Install Openssh
 SSHDOPTS=openssh
 
-USEROPTS="-a -u -g netdev,docker,wheel gsham"
-USERSSHKEY="https://official-sounding.com/gsham.keys"
+USEROPTS="-a -u -g netdev gsham"
+USERSSHKEY="https://setup.omgpwned.net/automation/keys"
 
 # Use openntpd
 NTPOPTS=chrony
