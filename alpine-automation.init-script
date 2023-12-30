@@ -1,0 +1,14 @@
+#!/sbin/openrc-run
+
+directory="/opt/alpine-automation"
+
+depend() {
+    need net
+    use dns logger netmount
+}
+
+command="$directory/alpine-automation"
+start_stop_daemon_args="--chdir $directory -1 /var/log/alpine-automation.log"
+command_background=true
+command_user="aa-svc:aa-svc"
+pidfile="/var/run/${RC_SVCNAME}.pid"
