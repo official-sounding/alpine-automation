@@ -1,15 +1,16 @@
+using Stubble.Core.Builders;
+
 var builder = WebApplication.CreateBuilder(args);
 
 var app = builder.Build();
 
-app.MapGet("/answerfile", async ([AsParameters] AnswerfileParams request) =>
+app.MapGet("/answerfile", async (HttpRequest request, [AsParameters] AnswerfileParams parameters) =>
 {
-    var (id, hostname) = request;
-    var file = await File.ReadAllTextAsync("./answerfile.template");
-    var output = file
-        .Replace("{hostname}", hostname)
-        .Replace("{id}", $"{id}");
-
+    var stubble = new StubbleBuilder().Build();
+    var (id, hostname) = parameters;
+    var data = new AnswerfileViewModel(id, hostname, request);
+    var template = await File.ReadAllTextAsync("./answerfile.mustache");
+    var output = await stubble.RenderAsync(template, data);
     return Results.Text(output);
 });
 app.MapGet("/keys", async () => Results.Text(await File.ReadAllTextAsync("./gsham.keys")));

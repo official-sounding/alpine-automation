@@ -9,12 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="answerfile.template" >
+    <Content Include="answerfile.mustache">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content> 
     <Content Include="gsham.keys">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Stubble.Core" Version="1.10.8" />
   </ItemGroup>
 
 </Project>
