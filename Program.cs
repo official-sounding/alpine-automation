@@ -10,7 +10,8 @@ app.MapGet("/answerfile", async (HttpRequest request, [AsParameters] AnswerfileP
     var (id, hostname) = parameters;
     var data = new AnswerfileViewModel(id, hostname, request);
     var template = await File.ReadAllTextAsync("./answerfile.mustache");
-    var output = await stubble.RenderAsync(template, data);
+    // ensure unix line endings
+    var output = (await stubble.RenderAsync(template, data)).Replace("\r\n", "\n");
     return Results.Text(output);
 });
 app.MapGet("/keys", async () => Results.Text(await File.ReadAllTextAsync("./gsham.keys")));
