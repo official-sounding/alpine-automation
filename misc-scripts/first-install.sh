@@ -17,3 +17,9 @@ service docker start
 
 # prevent direct logins to root
 passwd -l root
+
+#setup qemu-guest-agent
+apk add qemu-guest-agent
+
+rc-update add qemu-guest-agent default
+service qemu-guest-agent start
