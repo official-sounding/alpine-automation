@@ -37,5 +37,5 @@ echo "service nginx restart" > /etc/letsencrypt/renewal-hooks/deploy/restart-ngi
 chmod 755 /etc/letsencrypt/renewal-hooks/deploy/restart-nginx.sh
 
 #create periodic entry 
-echo "sleep $RANDOM && certbot renew -q" > /etc/periodic/daily/01-certbot-renew.sh
-chmod 755 /etc/periodic/daily/01-certbot-renew.sh
+echo "sleep $RANDOM && certbot renew -q" > /etc/periodic/daily/01-certbot-renew
+chmod 755 /etc/periodic/daily/01-certbot-renew
